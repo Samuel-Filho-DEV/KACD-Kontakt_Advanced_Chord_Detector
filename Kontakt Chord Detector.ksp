@@ -1,13 +1,13 @@
 //Kontakt Advanced Chord Detector Script v1.0.0
 //KSP Code: Samuel Filho __TheDSPManiac
-import "T:\KACD\funcs\cnvPurp.ksp" as cnvFuncs
+import "T:\KACD Kontakt Advanced Chord Detector\funcs\cnvPurp.ksp" as cnvFuncs
 
 on init 
 
 	cnvFuncs.setUI
 	set_ui_color(0xb5c0c4)
-	set_script_title("KSCAD")
-	//make_perfview
+	set_script_title("KACD")
+	make_perfview
 	cnvFuncs.msg
 	message("")
 
@@ -30,8 +30,36 @@ on init
 		BLUE  := 0x03bafc
 	end const
 
+	declare ui_label chords (1, 1)
+	move_control_px(chords, 20, 40)
+	
+
 	declare !chord_names[NUM_OF_CHORD]
 		chord_names[0] := "Octave"
 		chord_names[1] := "minor 2nd"
-			
+		chord_names[2] := "Major 2nd"
+		chord_names[3] := "minor 3rd"
+		chord_names[4] := "Major 3rd"
+		chord_names[5] := "Perfect 4th"
+		chord_names[6] := "Tritone"
+		chord_names[7] := "Perfect 5th"
+		chord_names[8] := "minor 6th"
+		chord_names[9] := "Major 6th"
+		chord_names[10] := "minor 7th"
+		chord_names[11] := "Major 7th"
+		
+ end on
+
+ on note
+ if (%KEY_DOWN[60] = 1)
+ 	set_text(chords,chord_names[6] )
+ 	//chords := chord_names[0] 
+ end if
 end on
+
+on release
+ if (%KEY_DOWN[60] = 0)
+ 	set_text(chords,"chords")	
+ end if
+end on
+ 
