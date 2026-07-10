@@ -1,1 +1,1 @@
-# KACD-Kontakt-Advanced-Chord-Detector
+# KACD - Kontakt Advanced Chord Detector
