@@ -1,0 +1,8 @@
+function setUI
+  set_ui_height_px(70)
+  set_ui_width_px(120)
+end function
+
+function msg
+  message("Kontakt Advanced Chord Detector Script v1.0.0")
+end function

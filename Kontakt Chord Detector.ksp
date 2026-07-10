@@ -1,0 +1,37 @@
+//Kontakt Advanced Chord Detector Script v1.0.0
+//KSP Code: Samuel Filho __TheDSPManiac
+import "T:\KACD\funcs\cnvPurp.ksp" as cnvFuncs
+
+on init 
+
+	cnvFuncs.setUI
+	set_ui_color(0xb5c0c4)
+	set_script_title("KSCAD")
+	//make_perfview
+	cnvFuncs.msg
+	message("")
+
+	declare @loger_filepath
+
+	define NUM_OF_ALL_KEY := 128
+	define NUM_OF_CHORD := 196
+	define NUM_OF_KEY := 7
+	define NUM_OF_NOTE := 12
+
+	family keys
+		declare const C := 20
+	end family
+
+	//KEY COLORS
+	const colours 
+		WHITE := 0xFFFFFF
+		BLACK := 0x000000
+		RED   := 0xFF0000
+		BLUE  := 0x03bafc
+	end const
+
+	declare !chord_names[NUM_OF_CHORD]
+		chord_names[0] := "Octave"
+		chord_names[1] := "minor 2nd"
+			
+end on
