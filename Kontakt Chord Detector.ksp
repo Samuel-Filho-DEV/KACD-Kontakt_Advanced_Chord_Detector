@@ -92,10 +92,11 @@ on init
 		chord_names[10] := "minor 7th"
 		chord_names[11] := "Major 7th"
 		chord_names[12] := "Major"
-		chord_names[13] := 'Minor'
+		chord_names[13] := 'minor'
 		
 end on 
 
+//A rudimentar chord detection logic for test purposes.
  on note
  	set_text(midiMonitor, $EVENT_NOTE)
  if (%KEY_DOWN[60] = 1 and %KEY_DOWN[64] = 1 and %KEY_DOWN[67] = 1  )
@@ -106,6 +107,14 @@ end on
  	set_text(chords,chord_names[2] )
  	set_text(chord_roots, note_names[0])
  end if
+  if (%KEY_DOWN[62] = 1 and %KEY_DOWN[65] = 1 and %KEY_DOWN[69] = 1  )
+ 	set_text(chords,chord_names[13] )
+ 	set_text(chord_roots, note_names[2])
+ end if
+  if (%KEY_DOWN[65] = 1 and %KEY_DOWN[69] = 1 and %KEY_DOWN[74] = 1  )
+ 	set_text(chords,chord_names[1] )
+ 	set_text(chord_roots, note_names[2])
+ end if
 end on
 
 on release
@@ -114,6 +123,14 @@ if (%KEY_DOWN[60] = 0 and %KEY_DOWN[64] = 0 and %KEY_DOWN[67] = 0  )
  	set_text(chord_roots, "")
  end if
    if (%KEY_DOWN[64] = 0 and %KEY_DOWN[67] = 0 and %KEY_DOWN[72] = 0  )
+ 	set_text(chords,"")	
+ 	set_text(chord_roots, "")
+ end if
+   if (%KEY_DOWN[62] = 0 and %KEY_DOWN[65] = 0 and %KEY_DOWN[69] = 0  )
+ 	set_text(chords,"")	
+ 	set_text(chord_roots, "")
+ end if
+   if (%KEY_DOWN[65] = 0 and %KEY_DOWN[69] = 0 and %KEY_DOWN[74] = 0  )
  	set_text(chords,"")	
  	set_text(chord_roots, "")
  end if
