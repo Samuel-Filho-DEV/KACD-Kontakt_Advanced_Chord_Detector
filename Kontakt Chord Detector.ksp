@@ -35,27 +35,32 @@ on init
 	move_control_px(cd, 20, 25)
 	hide_part(cd, HIDE_PART_BG)
 	set_text(cd, "Chords:")
+	set_control_par(cd, CONTROL_PAR_FONT_TYPE, 0)
 
 	declare ui_label ev (1, 1)
 	move_control_px(ev, 110, 25)
 	hide_part(ev, HIDE_PART_BG)
 	set_text(ev, "$EVENT_NOTE:")
+	set_control_par(ev, CONTROL_PAR_FONT_TYPE, 0)
 	
 
 	declare ui_label chord_roots (2, 1)
 	move_control_px(chord_roots, 20, 40)
 	//hide_part(chord_roots, HIDE_PART_BG)
 	set_text(chord_roots, "")
+	set_control_par(chord_roots, CONTROL_PAR_FONT_TYPE, 0)
 
 	declare ui_label chords (1, 1)
 	move_control_px(chords, 30, 40)
 	hide_part(chords, HIDE_PART_BG)
 	set_text(chords, "")
+	set_control_par(chords, CONTROL_PAR_FONT_TYPE, 0)
 
 	declare ui_label midiMonitor (1,1)
 	move_control_px(midiMonitor, 110, 40)
 	//hide_part(midiMonitor, HIDE_PART_BG)
 	set_text(midiMonitor, "")
+	set_control_par(midiMonitor, CONTROL_PAR_FONT_TYPE, 0)
 
 	declare %notes[128]
 	
@@ -86,22 +91,34 @@ on init
 		chord_names[9] := "Major 6th"
 		chord_names[10] := "minor 7th"
 		chord_names[11] := "Major 7th"
+		chord_names[12] := "Major"
+		chord_names[13] := 'Minor'
 		
 end on 
 
  on note
  	set_text(midiMonitor, $EVENT_NOTE)
- if (%KEY_DOWN[60] = 1)
- 	set_text(chords,chord_names[2] )
- 	set_text(chord_roots, note_names[0] )
+ if (%KEY_DOWN[60] = 1 and %KEY_DOWN[64] = 1 and %KEY_DOWN[67] = 1  )
+ 	set_text(chords,chord_names[12] )
+ 	set_text(chord_roots, note_names[0])
  end if
- 
+  if (%KEY_DOWN[64] = 1 and %KEY_DOWN[67] = 1 and %KEY_DOWN[72] = 1  )
+ 	set_text(chords,chord_names[2] )
+ 	set_text(chord_roots, note_names[0])
+ end if
 end on
 
 on release
- if (%KEY_DOWN[60] = 0)
+if (%KEY_DOWN[60] = 0 and %KEY_DOWN[64] = 0 and %KEY_DOWN[67] = 0  )
+ 	set_text(chords,"")	
+ 	set_text(chord_roots, "")
+ end if
+   if (%KEY_DOWN[64] = 0 and %KEY_DOWN[67] = 0 and %KEY_DOWN[72] = 0  )
  	set_text(chords,"")	
  	set_text(chord_roots, "")
  end if
 end on
- 
+
+
+
+
