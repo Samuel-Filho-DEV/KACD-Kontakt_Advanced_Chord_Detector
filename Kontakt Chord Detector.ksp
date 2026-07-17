@@ -115,6 +115,10 @@ end on
  	set_text(chords,chord_names[1] )
  	set_text(chord_roots, note_names[2])
  end if
+ 	if (%KEY_DOWN[64] = 1 and %KEY_DOWN[67] = 1 and %KEY_DOWN[71] = 1  )
+ 	set_text(chords,chord_names[13] )
+ 	set_text(chord_roots, note_names[4])
+ end if
 end on
 
 on release
@@ -131,6 +135,10 @@ if (%KEY_DOWN[60] = 0 and %KEY_DOWN[64] = 0 and %KEY_DOWN[67] = 0  )
  	set_text(chord_roots, "")
  end if
    if (%KEY_DOWN[65] = 0 and %KEY_DOWN[69] = 0 and %KEY_DOWN[74] = 0  )
+ 	set_text(chords,"")	
+ 	set_text(chord_roots, "")
+ end if
+    if (%KEY_DOWN[64] = 0 and %KEY_DOWN[67] = 0 and %KEY_DOWN[71] = 0  )
  	set_text(chords,"")	
  	set_text(chord_roots, "")
  end if
